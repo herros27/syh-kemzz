@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 257" preserveAspectRatio="xMidYMid meet">
+    <defs>
+        <linearGradient id="headGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#78dcca"/>
+            <stop offset="100%" stop-color="#78dcca"/>
+        </linearGradient>
+        <linearGradient id="bodyGradient" x1="43%" y1="2%" x2="50%" y2="89%">
+            <stop offset="0%" stop-color="#78dcca"/>
+           
+        </linearGradient>
+    </defs>
+    
+    <!-- Body/Shoulders part -->
+    <path fill="url(#bodyGradient)"
+          d="M256 257v-50c0-30-50-50-128-50S0 177 0 207v50h256z"/>
+    
+    <!-- Head part -->
+    <circle fill="url(#headGradient)"
+            cx="128"
+            cy="95"
+            r="60"/>
+</svg>
