@@ -77,16 +77,15 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="sm:hidden">
-          
-          <div className="px-2 pb-3 space-y-1 ml-2">
+          <div className="px- pb-3 space-y-2 ">
             {['/', '/about', '/project', '/certificate', '/contact'].map((path, index) => {
               const labels = ['Home', 'About', 'Projects', 'Certificates', 'Contact'];
               return (
                 
                 <motion.div 
                   key={index}
-                  whileTap={{ scale: 1.1 }} // Membesar saat diklik
-                  animate={activeIndex === index ? { scale: 1.1 } : { scale: 1 }} // Mempertahankan ukuran saat aktif
+                  whileTap={{ scale: 0.9 }} // Membesar saat diklik
+                  animate={activeIndex === index ? { scale: 0.9 } : { scale: 1 }} // Mempertahankan ukuran saat aktif
                 >
                   <AnimatedSection>
                   <Link

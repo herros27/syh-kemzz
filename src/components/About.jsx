@@ -18,7 +18,7 @@ export const About = ({skills}) => (
 
       {/* Bagian Keahlian */}
       <AnimatedSection>
-        <h3 className="text-xl font-semibold m-2">Keahlian:</h3>
+        <h3 className="text-xl font-semibold m-2">Skills:</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
             <SkillCard key={index} skill={skill} />
