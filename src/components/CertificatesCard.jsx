@@ -30,7 +30,7 @@ export const CertificatesCard = ({ certificate }) => (
         href={certificate.github}
         className="inline-flex items-center text-blue-600 hover:text-blue-800"
       >
-        <GitHubIcon /> <span className="ml-2">View on GitHub</span>
+        {/* <GitHubIcon /> <span className="ml-2">View on GitHub</span> */}
         <DicodingIcon /> <span className="ml-2">View on Dicoding</span>
       </a>
     </div>
