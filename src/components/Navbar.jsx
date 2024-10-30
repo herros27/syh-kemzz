@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from 'framer-motion'; // Impor motion dari framer-motion
-import { AnimatedSection } from './AnimatedSection';
+import { motion } from "framer-motion";
+import { AnimatedSection } from "./AnimatedSection";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Menggunakan useLocation untuk mendapatkan lokasi saat ini
-  const [activeIndex, setActiveIndex] = useState(null); // Status untuk tombol aktif
+  const location = useLocation();
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Mengatur ulang activeIndex saat berpindah halaman
   useEffect(() => {
-    const currentIndex = ['/', '/about', '/project', '/certificate', '/contact'].indexOf(location.pathname);
+    const currentIndex = [
+      "/",
+      "/about",
+      "/project",
+      "/certificate",
+      "/contact",
+    ].indexOf(location.pathname);
     setActiveIndex(currentIndex);
   }, [location]);
 
@@ -49,24 +54,38 @@ const Navbar = () => {
             <div className="hidden sm:block sm:ml-6">
               <AnimatedSection>
                 <div className="flex space-x-4">
-                  {['/', '/about', '/project', '/certificate', '/contact'].map((path, index) => {
-                    const labels = ['Home', 'About', 'Projects', 'Certificates', 'Contact'];
-                    return (
-                      <motion.div 
-                        key={index}
-                        whileTap={{ scale: 1.7 }} // Membesar saat diklik
-                        animate={activeIndex === index ? { scale: 1.5 } : { scale: 1 }} // Mempertahankan ukuran saat aktif
-                      >
-                        <Link
-                          to={path}
-                          className={`text-white block px-3 py-2 rounded-md text-base font-medium ${location.pathname === path ? 'bg-gray-700' : ''}`}
-                          onClick={() => setActiveIndex(index)} // Mengatur index aktif saat diklik
+                  {["/", "/about", "/project", "/certificate", "/contact"].map(
+                    (path, index) => {
+                      const labels = [
+                        "Home",
+                        "About",
+                        "Projects",
+                        "Certificates",
+                        "Contact",
+                      ];
+                      return (
+                        <motion.div
+                          key={index}
+                          whileTap={{ scale: 1.7 }}
+                          animate={
+                            activeIndex === index
+                              ? { scale: 1.5 }
+                              : { scale: 1 }
+                          }
                         >
-                          {labels[index]}
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
+                          <Link
+                            to={path}
+                            className={`text-white block px-3 py-2 rounded-md text-base font-medium ${
+                              location.pathname === path ? "bg-gray-700" : ""
+                            }`}
+                            onClick={() => setActiveIndex(index)}
+                          >
+                            {labels[index]}
+                          </Link>
+                        </motion.div>
+                      );
+                    }
+                  )}
                 </div>
               </AnimatedSection>
             </div>
@@ -76,34 +95,51 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="sm:hidden">
-          <div className="px- pb-3 space-y-2 ">
-            {['/', '/about', '/project', '/certificate', '/contact'].map((path, index) => {
-              const labels = ['Home', 'About', 'Projects', 'Certificates', 'Contact'];
-              return (
-                
-                <motion.div 
-                  key={index}
-                  whileTap={{ scale: 0.9 }} // Membesar saat diklik
-                  animate={activeIndex === index ? { scale: 0.9 } : { scale: 1 }} // Mempertahankan ukuran saat aktif
-                >
-                  <AnimatedSection>
-                  <Link
-                    to={path}
-                    className={`text-white block px-3 py-2 rounded-md text-base font-medium ${location.pathname === path ? 'bg-gray-700' : ''}`}
-                    onClick={() => setActiveIndex(index)} // Mengatur index aktif saat diklik
+        <motion.div
+          className="sm:hidden"
+          initial={{ opacity: 0, height: 0 }} // Mulai dengan tidak terlihat dan tinggi nol
+          animate={{ opacity: 1, height: "auto" }} // Mengatur opacity dan tinggi ke auto saat membuka
+          exit={{ opacity: 1, height: 0 }} // Mengatur kembali saat menutup
+          transition={{ duration: 0.3 }} // Durasi animasi
+        >
+          <div className="px-2 pb-3 space-y-2">
+            {["/", "/about", "/project", "/certificate", "/contact"].map(
+              (path, index) => {
+                const labels = [
+                  "Home",
+                  "About",
+                  "Projects",
+                  "Certificates",
+                  "Contact",
+                ];
+                return (
+                  <motion.div
+                    key={index}
+                    whileTap={{ scale: 0.9 }}
+                    animate={
+                      activeIndex === index ? { scale: 0.9 } : { scale: 1 }
+                    }
                   >
-                    {labels[index]}
-                  </Link>
-
-                  </AnimatedSection>
-
-                 
-                </motion.div>
-              );
-            })}
+                    <AnimatedSection>
+                      <Link
+                        to={path}
+                        className={`text-white block px-3 py-2 rounded-md text-base font-medium ${
+                          location.pathname === path ? "bg-gray-700" : ""
+                        }`}
+                        onClick={() => {
+                          setActiveIndex(index);
+                          setIsOpen(false); // Tutup menu saat item diklik
+                        }}
+                      >
+                        {labels[index]}
+                      </Link>
+                    </AnimatedSection>
+                  </motion.div>
+                );
+              }
+            )}
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );

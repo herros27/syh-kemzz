@@ -1,7 +1,7 @@
-import React from 'react';
-import { GitHubIcon } from './icons';
-import { DicodingIcon } from './icons';
-import { AnimatedSection } from './AnimatedSection';
+import React from "react";
+import { GitHubIcon } from "./icons";
+import { DicodingIcon } from "./icons";
+import { AnimatedSection } from "./AnimatedSection";
 
 export const CertificatesCard = ({ certificate }) => (
   <AnimatedSection>
