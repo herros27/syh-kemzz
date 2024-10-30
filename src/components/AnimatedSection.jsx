@@ -1,8 +1,8 @@
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { UseScrollAnimation } from '../hooks/UseScrollAnimation';
 
 export const AnimatedSection = ({ children, className = "" }) => {
-  const [setRef, visibleIndex] = useScrollAnimation();
+  const [setRef, visibleIndex] = UseScrollAnimation();
 
   return (
     <div

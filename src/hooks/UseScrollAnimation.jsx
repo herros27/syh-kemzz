@@ -1,7 +1,7 @@
 // src/hooks/useScrollAnimation.js
 import { useState, useEffect } from 'react';
 
-export const useScrollAnimation = (threshold = 0.1) => {
+export const UseScrollAnimation = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
   const [ref, setRef] = useState(null);
 
