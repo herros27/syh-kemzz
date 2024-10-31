@@ -58,7 +58,7 @@ const Navbar = () => {
                     (path, index) => {
                       const labels = [
                         "Home",
-                        "About",
+                        "Skills",
                         "Projects",
                         "Certificates",
                         "Contact",
@@ -107,7 +107,7 @@ const Navbar = () => {
               (path, index) => {
                 const labels = [
                   "Home",
-                  "About",
+                  "Skills",
                   "Projects",
                   "Certificates",
                   "Contact",
