@@ -1,6 +1,6 @@
 import React from "react";
-import { GitHubIcon } from "./icons";
-import { DicodingIcon } from "./icons";
+import { GitHubIcon } from "./icons/icons";
+import { DicodingIcon } from "./icons/icons";
 import { AnimatedSection } from "./AnimatedSection";
 
 export const CertificatesCard = ({ certificate }) => (

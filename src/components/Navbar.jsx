@@ -1,30 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "./AnimatedSection";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const currentIndex = [
-      "/",
-      "/about",
-      "/project",
-      "/certificate",
-      "/contact",
-    ].indexOf(location.pathname);
-    setActiveIndex(currentIndex);
-  }, [location]);
+  const sections = [
+    "#header",
+    "#skills",
+    "#projects",
+    "#certificates",
+    "#contact",
+  ];
+  const labels = ["Home", "Skills", "Projects", "Certificates", "Contact"];
 
   return (
-    <nav className="bg-midnight">
+    <nav className="bg-midnight fixed top-0 w-full z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="relative flex items-center justify-between h-14">
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
@@ -54,38 +50,23 @@ const Navbar = () => {
             <div className="hidden sm:block sm:ml-6">
               <AnimatedSection>
                 <div className="flex space-x-4">
-                  {["/", "/about", "/project", "/certificate", "/contact"].map(
-                    (path, index) => {
-                      const labels = [
-                        "Home",
-                        "Skills",
-                        "Projects",
-                        "Certificates",
-                        "Contact",
-                      ];
-                      return (
-                        <motion.div
-                          key={index}
-                          whileTap={{ scale: 1.7 }}
-                          animate={
-                            activeIndex === index
-                              ? { scale: 1.5 }
-                              : { scale: 1 }
-                          }
-                        >
-                          <Link
-                            to={path}
-                            className={`text-white block px-3 py-2 rounded-md text-base font-medium ${
-                              location.pathname === path ? "bg-gray-700" : ""
-                            }`}
-                            onClick={() => setActiveIndex(index)}
-                          >
-                            {labels[index]}
-                          </Link>
-                        </motion.div>
-                      );
-                    }
-                  )}
+                  {sections.map((href, index) => (
+                    <motion.div
+                      key={index}
+                      whileTap={{ scale: 1.7 }}
+                      animate={
+                        activeIndex === index ? { scale: 1.5 } : { scale: 1 }
+                      }
+                    >
+                      <a
+                        href={href}
+                        className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                        onClick={() => setActiveIndex(index)}
+                      >
+                        {labels[index]}
+                      </a>
+                    </motion.div>
+                  ))}
                 </div>
               </AnimatedSection>
             </div>
@@ -97,47 +78,32 @@ const Navbar = () => {
       {isOpen && (
         <motion.div
           className="sm:hidden"
-          initial={{ opacity: 0, height: 0 }} // Mulai dengan tidak terlihat dan tinggi nol
-          animate={{ opacity: 1, height: "auto" }} // Mengatur opacity dan tinggi ke auto saat membuka
-          exit={{ opacity: 1, height: 0 }} // Mengatur kembali saat menutup
-          transition={{ duration: 0.3 }} // Durasi animasi
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 1, height: 0 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="px-2 pb-3 space-y-2">
-            {["/", "/about", "/project", "/certificate", "/contact"].map(
-              (path, index) => {
-                const labels = [
-                  "Home",
-                  "Skills",
-                  "Projects",
-                  "Certificates",
-                  "Contact",
-                ];
-                return (
-                  <motion.div
-                    key={index}
-                    whileTap={{ scale: 0.9 }}
-                    animate={
-                      activeIndex === index ? { scale: 0.9 } : { scale: 1 }
-                    }
+            {sections.map((href, index) => (
+              <motion.div
+                key={index}
+                whileTap={{ scale: 0.9 }}
+                animate={activeIndex === index ? { scale: 0.9 } : { scale: 1 }}
+              >
+                <AnimatedSection>
+                  <a
+                    href={href}
+                    className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                    onClick={() => {
+                      setActiveIndex(index);
+                      setIsOpen(false);
+                    }}
                   >
-                    <AnimatedSection>
-                      <Link
-                        to={path}
-                        className={`text-white block px-3 py-2 rounded-md text-base font-medium ${
-                          location.pathname === path ? "bg-gray-700" : ""
-                        }`}
-                        onClick={() => {
-                          setActiveIndex(index);
-                          setIsOpen(false); // Tutup menu saat item diklik
-                        }}
-                      >
-                        {labels[index]}
-                      </Link>
-                    </AnimatedSection>
-                  </motion.div>
-                );
-              }
-            )}
+                    {labels[index]}
+                  </a>
+                </AnimatedSection>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       )}
@@ -145,4 +111,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+// export default Navbar;

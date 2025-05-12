@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { AnimatedSection } from './AnimatedSection';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import { AnimatedSection } from "./AnimatedSection";
+import emailjs from "emailjs-com";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,31 +22,43 @@ export const Contact = () => {
     e.preventDefault();
 
     // Mengirim email menggunakan EmailJS
-    emailjs.send('service_zn0jzab', 'template_362i3eo', formData, 'u5poli8ph7q5UQfae')
+    emailjs
+      .send(
+        "service_zn0jzab",
+        "template_362i3eo",
+        formData,
+        "u5poli8ph7q5UQfae"
+      )
       .then((response) => {
-        console.log('Email sent successfully', response);
+        console.log("Email sent successfully", response);
         setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' }); // Reset form
+        setFormData({ name: "", email: "", message: "" }); // Reset form
       })
       .catch((error) => {
-        console.error('Failed sending email', error);
+        console.error("Failed sending email", error);
       });
   };
 
   return (
-    <section className="py-16">
+    <section className="bg-midnight py-16" id="contact">
       <AnimatedSection className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Me</h2>
+        <h2 className="text-3xl font-bold text-white mb-8">Contact Me</h2>
         <div className="max-w-lg mx-auto">
           {submitted ? (
-            <div className="w-full bg-midnight text-white px-4 py-3 rounded relative text-center" role="alert">
+            <div
+              className="w-full bg-midnight text-white px-4 py-3 rounded relative text-center"
+              role="alert"
+            >
               <strong className="font-bold">Message Sent Successfully</strong>
-              <span className="block sm:inline"> Thanks for Contact me 🙏😁.</span>
+              <span className="block sm:inline">
+                {" "}
+                Thanks for Contact me 🙏😁.
+              </span>
             </div>
           ) : (
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-gray-700 mb-2">Nama</label>
+                {/* <label className="block text-white mb-2">Nama</label> */}
                 <input
                   type="text"
                   name="name"
@@ -58,7 +70,7 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-2">Email</label>
+                {/* <label className="block text-white mb-2">Email</label> */}
                 <input
                   type="email"
                   name="email"
@@ -70,7 +82,7 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-2">Pesan</label>
+                {/* <label className="block text-white mb-2">Pesan</label> */}
                 <textarea
                   name="message"
                   value={formData.message}
@@ -83,7 +95,7 @@ export const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-midnight text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full bg-metal text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Kirim Pesan
               </button>

@@ -1,20 +1,35 @@
 import React from "react";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "./icons";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "./icons/icons";
 import { AnimatedSection } from "./AnimatedSection";
+import Typewriter from "typewriter-effect";
 
 export const Header = () => (
-  <header className="shadow-lg min-h-screen flex flex-col items-center w-full bg-bg">
-    <div className="container max-w-screen-lg mx-auto px-6 py-16 text-center md:text-left flex flex-col md:flex-row md:justify-between">
+  <header
+    className="shadow-lg min-h-screen flex flex-col items-center w-full bg-text-tag"
+    id="header"
+  >
+    <div className="container max-w-screen-lg bg-bg mx-auto px-6 py-16 text-center md:text-left flex flex-col md:flex-row md:justify-between">
       <div className="container md:max-w-screen-lg mx-auto px-6 py-16 flex flex-col md:flex-row items-center">
         {/* Left section: Text */}
         <div className="md:w-1/2 md:pr-8 flex flex-col items-center md:items-start">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Kemas Khairunsyah
+            <Typewriter
+              options={{
+                autoStart: true,
+                loop: true,
+                delay: 100, // kecepatan mengetik (ms per karakter)
+                deleteSpeed: 50, // kecepatan menghapus
+                pauseFor: 2000, // jeda sebelum menghapus (ms)
+                strings: [
+                  "Kemas Khairunsyah",
+                  "Front-End and Back-End Developer",
+                  "Web, Mobile, and AI Enthusiast",
+                ],
+              }}
+            />
           </h1>
           <AnimatedSection>
-            <p className="text-xl text-gray-500 mb-6">
-              A Technology Enthusiast
-            </p>
+            <p className="text-xl text-silver mb-6">Hawoo 🖐️😁🖐️</p>
           </AnimatedSection>
           <AnimatedSection>
             <div className="flex space-x-4 mt-6 justify-center md:justify-start">
@@ -51,10 +66,10 @@ export const Header = () => (
       </AnimatedSection>
     </div>
 
-    <section className="container max-w-screen-lg mx-auto px-6 py-10 text-center md:text-left">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">About Me</h2>
+    <section className="container max-w-screen-lg bg-metal mx-auto px-6 py-6 text-center md:text-left">
+      <h2 className="text-3xl font-bold text-white mb-6">About Me</h2>
       <AnimatedSection>
-        <p className="text-lg leading-relaxed text-gray-600">
+        <p className="text-lg leading-relaxed text-bg">
           Hello! My name is Kemas Khairunsyah, and I'm from Belitung. Currently,
           I am pursuing a bachelor's degree in Informatics at Ahmad Dahlan
           University. Technology has always been my passion, and I am deeply
@@ -62,12 +77,13 @@ export const Header = () => (
           field.🍂
           <br />
           <br />
-          I’m a part of the Mobile Development Cohort at Bangkit Academy, Batch
-          2 of 2024, where I’m expanding my skills in Android development and
-          mobile applications. I believe that technology has the power to solve
-          real-world problems, and I’m excited to continue learning and growing
-          in this ever-evolving field. Thank you for visiting my portfolio, and
-          I look forward to sharing my journey with you!🐦‍🔥 .
+          I’m a distinction graduate of the Mobile Development Cohort at Bangkit
+          Academy, Batch 2 of 2024, where I’m expanding my skills in Android
+          development and mobile applications. I believe that technology has the
+          power to solve real-world problems, and I’m excited to continue
+          learning and growing in this ever-evolving field. Thank you for
+          visiting my portfolio, and I look forward to sharing my
+          journey with you!🐦‍🔥 .
         </p>
       </AnimatedSection>
     </section>
