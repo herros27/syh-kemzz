@@ -1,0 +1,35 @@
+/* Bisa disimpan di file CSS kamu, misal: styles.css */
+.flip-hover {
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.flip-hover:hover {
+  transform: rotateX(180deg); /* cukup 180° agar seperti flip */
+}
+
+/* styles.css */
+.rotate-in {
+  opacity: 0;
+  transform: rotateY(0deg);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.rotate-in.animate {
+  opacity: 1;
+  transform: rotateY(360deg);
+}
+
+/* styles.css */
+.rotate-up {
+  opacity: 0;
+  transform: rotateX(0deg); /* Mulai dari rotasi ke bawah */
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.rotate-up.animate {
+  opacity: 1;
+  transform: rotateX(360deg); /* Kembali ke posisi normal */
+}

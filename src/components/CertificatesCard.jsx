@@ -2,16 +2,18 @@ import React from "react";
 import { GitHubIcon } from "./icons/icons";
 import { DicodingIcon } from "./icons/icons";
 import { AnimatedSection } from "./AnimatedSection";
-
+import { AnimatedImage } from "./AnimatedImage";
+// import "../components/style/styling.css";
 export const CertificatesCard = ({ certificate }) => (
   <AnimatedSection>
     <div className="bg-card rounded-lg shadow-md p-6">
       {/* Menambahkan gambar sertifikat */}
       {certificate.image && (
-        <img
+        <AnimatedImage
           src={certificate.image}
           alt={certificate.title}
           className="w-full h-42 object-cover rounded-lg mb-4"
+          animation="rotate-in"
         />
       )}
       <h3 className="text-xl font-semibold mb-2">{certificate.title}</h3>
@@ -20,7 +22,7 @@ export const CertificatesCard = ({ certificate }) => (
         {certificate.tags.map((tag, tagIndex) => (
           <span
             key={tagIndex}
-            className="bg-tag text-white text-sm px-3 py-1 rounded-full"
+            className="bg-tag text-white text-sm px-3 py-1 rounded-full flip-hover"
           >
             {tag}
           </span>
