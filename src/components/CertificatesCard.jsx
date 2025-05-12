@@ -1,7 +1,7 @@
-import React from 'react';
-import { GitHubIcon } from './icons';
-import { DicodingIcon } from './icons';
-import { AnimatedSection } from './AnimatedSection';
+import React from "react";
+import { GitHubIcon } from "./icons/icons";
+import { DicodingIcon } from "./icons/icons";
+import { AnimatedSection } from "./AnimatedSection";
 
 export const CertificatesCard = ({ certificate }) => (
   <AnimatedSection>
@@ -30,7 +30,7 @@ export const CertificatesCard = ({ certificate }) => (
         href={certificate.github}
         className="inline-flex items-center text-blue-600 hover:text-blue-800"
       >
-        <GitHubIcon /> <span className="ml-2">View on GitHub</span>
+        {/* <GitHubIcon /> <span className="ml-2">View on GitHub</span> */}
         <DicodingIcon /> <span className="ml-2">View on Dicoding</span>
       </a>
     </div>

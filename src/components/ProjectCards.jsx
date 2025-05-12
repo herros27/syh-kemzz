@@ -1,6 +1,6 @@
-import React from 'react';
-import { GitHubIcon } from './icons';
-import { AnimatedSection } from './AnimatedSection';
+import React from "react";
+import { GitHubIcon } from "./icons/icons";
+import { AnimatedSection } from "./AnimatedSection";
 
 export const ProjectCard = ({ project }) => (
   <AnimatedSection>
