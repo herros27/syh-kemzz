@@ -1,9 +1,10 @@
 import React from "react";
 import { CertificatesCard } from "./CertificatesCard";
 import { AnimatedSection } from "./AnimatedSection";
-import { certificatesData } from "../data/certificates";
+import  certificatesData  from "../data/certificates.json";
 
 export const Certificates = () => (
+  
   <section className="py-16 bg-gray-100" id="certificates">
     <div className="container mx-auto px-6">
       <AnimatedSection>

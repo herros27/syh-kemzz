@@ -1,7 +1,7 @@
 import React from "react";
 import { SkillCard } from "./SkillCard";
 import { AnimatedSection } from "./AnimatedSection";
-import { skillsData } from "../data/skill";
+import skillsData  from "../data/skill.json";
 export const Skills = () => (
   <section className="bg-midnight py-16" id="skills">
     <AnimatedSection className="container  mx-auto px-6">

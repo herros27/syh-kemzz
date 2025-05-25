@@ -1,7 +1,7 @@
 import React from "react";
 import { ProjectCard } from "./ProjectCards";
 import { AnimatedSection } from "./AnimatedSection";
-import { projectsData } from "../data/projects";
+import  projectsData from "../data/project.json";
 
 export const Projects = () => (
   <section className="py-16 bg-gray-100" id="projects">

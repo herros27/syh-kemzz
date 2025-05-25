@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main  # cabang repo kamu
+
+media_folder: "public/images"  # tempat simpan media/upload
+public_folder: "/images"
+
+collections:
+  - name: "certificates"
+    label: "Certificates"
+    folder: "src/data/certificates"   # folder tempat data JSON/mardown
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "GitHub Link", name: "github", widget: "string" }
+      - { label: "Image", name: "image", widget: "string" }
+
+  # Tambah collection lain sesuai kebutuhan (misal skills)
