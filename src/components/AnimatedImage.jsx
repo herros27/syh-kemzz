@@ -16,7 +16,7 @@ export const AnimatedImage = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.observe(); // hanya animasi sekali
+          observer.disconnect(); // hanya animasi sekali
         }
       },
       { threshold: 0.1 }
@@ -34,7 +34,7 @@ export const AnimatedImage = ({
       ref={imgRef}
       src={src}
       alt={alt}
-      className={`${animation} ${isVisible ? "animate" : ""} ${className }`}
+      className={`${animation} ${isVisible ? "animate" : ""} ${className}`}
     />
   );
 };

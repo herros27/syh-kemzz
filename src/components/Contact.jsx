@@ -24,7 +24,7 @@ export const Contact = () => {
     // Mengirim email menggunakan EmailJS
     emailjs
       .send(
-        "service_zn0jzab",
+        "service_d8btz48",
         "template_362i3eo",
         formData,
         "u5poli8ph7q5UQfae"
